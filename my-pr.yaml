@@ -1,0 +1,9 @@
+apiVersion: "stable.boxboat.io/v1"
+kind: PRBuilder
+metadata:
+  name: my-new-prb-onbject
+spec:
+  url: github.com/colek42/example
+  token: mysecrettoken
+  branch: develop
+  deleteonclose: true
