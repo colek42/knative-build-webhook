@@ -31,8 +31,12 @@ func main() {
 
 		case github.PullRequestPayload:
 			pullRequest := payload.(github.PullRequestPayload)
-			// Do whatever you want from here...
-			fmt.Printf("%+v", pullRequest)
+			prAction := pullRequest.Action
+			if prAction == "closed" && pullRequest.PullRequest.Merged == true {
+				fmt.Println("Merged")
+			} else {
+				fmt.Println("Not merged")
+			}
 		}
 	})
 	http.ListenAndServe(":8787", nil)
