@@ -13,7 +13,7 @@ const (
 )
 
 func main() {
-	hook, _ := github.New(github.Options.Secret("nd83nd8@##dmd38@#ss"))
+	hook, _ := github.New(github.Options.Secret(""))
 
 	http.HandleFunc(path, func(w http.ResponseWriter, r *http.Request) {
 		payload, err := hook.Parse(r, github.ReleaseEvent, github.PullRequestEvent)
